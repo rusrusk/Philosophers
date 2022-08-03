@@ -6,7 +6,7 @@
 #    By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/20 11:00:55 by rkultaev          #+#    #+#              #
-#    Updated: 2022/08/03 12:29:08 by rkultaev         ###   ########.fr        #
+#    Updated: 2022/08/04 00:01:26 by rkultaev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS = main.c parsing.c utils.c error.c init.c message.c \
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=thread
 
 NC		:= \033[0m
 RED 	:= \033[1;31m

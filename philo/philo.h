@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:15:01 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/01 10:55:37 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/03 23:04:05 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ void		*cycle(void *philo_cycle);
 int		create_thread(t_data *data);
 int	join_and_destroy_thread(t_data *data);
 
+int handle_one_philo(t_data *data);
 
 #endif

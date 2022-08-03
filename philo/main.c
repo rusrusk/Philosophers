@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 21:35:03 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/03 16:59:25 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/03 22:45:20 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 		return (ERROR);
 	if (create_thread(&data) == ERROR)
 		return (ERROR);
+	
 	if (join_and_destroy_thread(&data) == ERROR)
 		return (ERROR);
 	printf("in cycle\n");

@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 21:02:39 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/03 19:24:36 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/03 23:57:39 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,14 @@ static int	eating_process(t_data *data, t_philo *philo)
 	philo->last_meal_time = curr_time_millisec();
 	ms = curr_time_millisec() - philo->data->start_time;
 	pthread_mutex_lock(&(data->stop_mutex));
-	if (!philo->data->stop)
+	// if (!philo->data->stop)
+	// {
+	// 	printf("%lld\t%d\t%s\n", ms, philo->idx, "is eating");
+	// }
+	if (data->nb_of_philos == 1)
 	{
-		printf("%lld\t%d\t%s\n", ms, philo->idx, "is eating");
+		printf("%lld\t%d\t%s\n", ms, philo->idx, "is died");
+		return (ERROR);
 	}
 	philo->nb_of_eaten_meals += 1;
 	if (data->nb_must_be_eaten != -1 && \
@@ -68,7 +73,11 @@ void	*cycle(void *philo_cycle)
 			break ;
 		}
 		pthread_mutex_unlock(&(data->stop_mutex));
-		take_forks(philo);
+		if (take_forks(philo) == ERROR)
+		{
+			pthread_mutex_unlock(philo->left_fork);
+			break ;
+		}
 		eating_process(philo->data, philo);
 		
 		sleeping_process(philo->data, philo);
