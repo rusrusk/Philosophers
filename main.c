@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 21:35:03 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/01 18:54:03 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/02 13:34:32 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main(int argc, char **argv)
 	if (join_and_destroy_thread(&data) == ERROR)
 		return (ERROR);
 }
-
 
 
 // int	ft_error_arg(int argc)

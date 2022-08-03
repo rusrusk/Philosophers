@@ -6,14 +6,14 @@
 #    By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/20 11:00:55 by rkultaev          #+#    #+#              #
-#    Updated: 2022/08/01 17:32:15 by rkultaev         ###   ########.fr        #
+#    Updated: 2022/08/02 13:48:48 by rkultaev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
 SRCS = main.c parsing.c utils.c error.c init.c message.c \
-		time.c cycle.c check.c fork.c mutex_init_destroy.c \
+		time.c cycle.c check.c fork.c \
 		philo.c 
 
 CC = gcc

@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:25:31 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/01 18:51:31 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:35:34 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ static int	mutex_data(t_data *data)
 			return (MUTEX_INIT_ERROR);
 		++i;
 	}
-	if (pthread_mutex_init(&data->print, NULL) == ERROR)
-		return (MUTEX_INIT_ERROR);
+	// if (pthread_mutex_init(&data->print, NULL) == ERROR)
+	// 	return (MUTEX_INIT_ERROR);
 	if (pthread_mutex_init(&data->stop_mutex, NULL) == ERROR)
 		return (MUTEX_INIT_ERROR);
 	return (SUCCESS);
@@ -80,13 +80,14 @@ static int	philosophers_data(t_data *data)
 	fill_philo(data);
 	data->start_time = curr_time_millisec();
 	// pthread_mutex_lock(data->philo->check_philo_died);
+	// pthread_mutex_lock(&data->stop_mutex);
 	data->stop = 0;
-	data->philo->nb_of_eaten_meals = 0;
+	// pthread_mutex_unlock(&data->stop_mutex);
 	data->nb_meals_stop_philo = 0;
 	t = curr_time_millisec();
-
 	while (i < data->nb_of_philos)
 	{
+		data->philo[i].nb_of_eaten_meals = 0;
 		data->philo[i].data = data;
 		data->philo[i].idx = i;
 		data->philo[i].last_meal_time = t;

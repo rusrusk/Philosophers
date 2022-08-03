@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:17:00 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/01 10:57:57 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/02 13:47:32 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	check_args(int argc, char **argv, t_data *data)
 		data->time_to_sleep = ft_atoi(argv[4]);
 		if (argc == 6)
 			data->nb_must_be_eaten = ft_atoi(argv[5]);
+		else
+			data->nb_must_be_eaten = -1;
 		return (SUCCESS);
 	}
 	return (ERROR);

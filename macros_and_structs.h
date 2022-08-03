@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:17:12 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/01 18:53:15 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/03 09:25:46 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_data
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print;
 	pthread_mutex_t	stop_mutex;
+	pthread_t		thread_for_meal;
 }	t_data;
 
 /**
@@ -66,6 +67,7 @@ typedef struct s_philo
 {
 	int						idx;
 	pthread_t				thread;
+	pthread_t				thread_for_death;
 
 	pthread_mutex_t			check_philo_died;
 	pthread_mutex_t			*left_fork;
@@ -75,6 +77,5 @@ typedef struct s_philo
 	long long				last_meal_time; //current time - start time
 	t_data					*data;
 }	t_philo;
-
 
 #endif

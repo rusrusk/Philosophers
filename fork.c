@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 15:53:32 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/01 17:56:34 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/02 11:54:00 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@ int	take_forks(t_philo *philo)
 	// t_philo	*philo;
 
 	// philo = (t_philo *)philo_s;
-	
 	if (pthread_mutex_lock(philo->left_fork) != ERROR)
 		print_message(philo->data, philo->idx, "has taken a fork");
 	
 	if (pthread_mutex_lock(philo->right_fork) != ERROR)
 		print_message(philo->data, philo->idx, "has taken a fork");
-	
 	// printf("here2\n");
 	return (SUCCESS);
 }
