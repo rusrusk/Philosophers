@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 21:02:39 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/02 20:37:00 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/03 19:24:36 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,16 @@ void	*cycle(void *philo_cycle)
 		{
 			// printf("%d\n", data->stop);
 			pthread_mutex_unlock(&(data->stop_mutex));
-			break;
+			break ;
 		}
 		pthread_mutex_unlock(&(data->stop_mutex));
 		take_forks(philo);
 		eating_process(philo->data, philo);
+		
 		sleeping_process(philo->data, philo);
+		
 		thinking_process(philo);
+		
 	}
 	return (NULL);
 }
