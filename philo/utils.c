@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:10:19 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/04 10:11:12 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:22:36 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static	int	conversion(const char *str, int plus_minus, int i)
 			return (0);
 		if (nb > 2147483647 && plus_minus == 1)
 			return (-1);
-			nb = nb * 10 + str[i] - 48;
-			i++;
+		nb = nb * 10 + str[i] - 48;
+		i++;
 	}
 	return (nb);
 }
