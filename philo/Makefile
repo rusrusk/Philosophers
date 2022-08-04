@@ -6,7 +6,7 @@
 #    By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/20 11:00:55 by rkultaev          #+#    #+#              #
-#    Updated: 2022/08/04 10:36:31 by rkultaev         ###   ########.fr        #
+#    Updated: 2022/08/04 16:54:48 by rkultaev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS = main.c parsing.c utils.c error.c init.c message.c \
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror -g #-ggdb3 -fsanitize=thread
 
 NC		:= \033[0m
 RED 	:= \033[1;31m
@@ -29,10 +29,6 @@ PURPLE	:= \033[0;35m
 
 
 OBJS = $(SRCS:%.c=%.o)
-
-# %.o : %.c
-# 		@echo "$(B_GREEN)$(notdir $<) $(NC)"
-# 		@$(CC) @(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
 		@echo "$(BLUE)=============COMPILING===============$(NC)"

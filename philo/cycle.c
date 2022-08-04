@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 21:02:39 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/04 10:23:03 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/04 16:49:05 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ static int	eating_process(t_data *data, t_philo *philo)
 	pthread_mutex_lock(&(data->stop_mutex));
 	if (!philo->data->stop)
 	{
-		printf("%lld\t%d\t%s\n", ms, philo->idx, "is eating");
+		printf("%lld %d %s\n", ms, philo->idx, "is eating");
 	}
 	philo->nb_of_eaten_meals += 1;
 	if (data->nb_must_be_eaten != -1 && \
 		philo->nb_of_eaten_meals == data->nb_must_be_eaten)
 		philo->data->nb_meals_stop_philo += 1;
 	pthread_mutex_unlock(&(data->stop_mutex));
-	usleep(philo->data->time_to_eat * 1000);
+	usleep((philo->data->time_to_eat * 1000) - 3000);
 	drop_forks(philo);
 	pthread_mutex_unlock(&(philo->check_philo_died));
 	return (SUCCESS);
@@ -56,7 +56,7 @@ static int	pre_cycle(t_philo *philo)
 	return (SUCCESS);
 }
 
-void	*cycle(void *philo_cycle)
+void	*procedure(void *philo_cycle)
 {
 	t_philo	*philo;
 	t_data	*data;

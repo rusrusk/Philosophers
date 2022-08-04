@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 15:56:11 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/04 10:13:53 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/04 16:48:04 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * @brief Checks if any philo died
  * 
- * @param monitor 
+ * @param philo_check 
  * @return int 
  */
 void	*check_for_death(void *philo_check)

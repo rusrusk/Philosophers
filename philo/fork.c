@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 15:53:32 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/04 10:05:21 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/04 16:39:43 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	take_forks(t_philo *philo)
 int	drop_forks(t_philo *philo)
 {
 	if (pthread_mutex_unlock(philo->left_fork) == ERROR)
-		return (ERROR);
+		return (MUTEX_UNLOCK_ERROR);
 	if (pthread_mutex_unlock(philo->right_fork) == ERROR)
-		return (ERROR);
+		return (MUTEX_UNLOCK_ERROR);
 	return (SUCCESS);
 }

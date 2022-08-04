@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:17:12 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/04 10:13:07 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/04 16:35:52 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct s_data
 	int				stop;
 	struct s_philo	*philo;
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	print;
 	pthread_mutex_t	stop_mutex;
 	pthread_t		thread_for_meal;
 }	t_data;
@@ -67,7 +66,6 @@ typedef struct s_philo
 	int						idx;
 	pthread_t				thread;
 	pthread_t				thread_for_death;
-
 	pthread_mutex_t			check_philo_died;
 	pthread_mutex_t			*left_fork;
 	pthread_mutex_t			*right_fork;

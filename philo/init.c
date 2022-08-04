@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:25:31 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/04 10:24:19 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/04 14:51:05 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param data 
  * @return t_data* 
  */
-int	fill_philo(t_data *data)
+static int	fill_philo(t_data *data)
 {
 	data->philo = (t_philo *)malloc(sizeof(t_philo) * data->nb_of_philos);
 	if (data->philo == NULL)
@@ -32,7 +32,7 @@ int	fill_philo(t_data *data)
  * @param data 
  * @return t_data* 
  */
-int	fill_mutex(t_data *data)
+static int	fill_forks(t_data *data)
 {
 	data->forks = malloc (sizeof(pthread_mutex_t) * data->nb_of_philos);
 	if (data->forks == NULL)
@@ -43,7 +43,7 @@ int	fill_mutex(t_data *data)
 /**
  * @brief Mutex constructor
  * 
- * @param info
+ * @param data
  * @return int
  */
 static int	mutex_data(t_data *data)
@@ -51,7 +51,7 @@ static int	mutex_data(t_data *data)
 	int	i;
 
 	i = 0;
-	fill_mutex(data);
+	fill_forks(data);
 	data->start_time = curr_time_millisec();
 	data->stop = 0;
 	data->nb_meals_stop_philo = 0;
@@ -69,7 +69,7 @@ static int	mutex_data(t_data *data)
 /**
  * @brief Philosopher constructor
  * 
- * @param info
+ * @param data
  * @return int*
  */
 static int	philosophers_data(t_data *data)
@@ -102,14 +102,14 @@ static int	philosophers_data(t_data *data)
 /**
  * @brief initializing info about threads and mutexes
  * 
- * @param info 
+ * @param data
  * @return int 
  */
-int	threads_and_mutex_init(t_data *info)
+int	threads_and_mutex_init(t_data *data)
 {
-	if (mutex_data(info) == ERROR)
+	if (mutex_data(data) == ERROR)
 		return (ERROR);
-	if (philosophers_data(info) == ERROR)
+	if (philosophers_data(data) == ERROR)
 		return (ERROR);
 	return (SUCCESS);
 }
