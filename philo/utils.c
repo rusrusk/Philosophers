@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:10:19 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/01 10:50:38 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/04 10:11:12 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,3 @@ void	ft_putendl_fd(char *s, int fd)
 	write (fd, s, ft_strlen(s));
 	write (fd, "\n", 1);
 }
-
-// int	ft_isdigit(int c)
-// {
-// 	return (c >= 48 && c <= 57);
-// }

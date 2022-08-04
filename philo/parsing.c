@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:17:00 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/03 23:48:14 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/04 10:07:43 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,6 @@ int	check_args(int argc, char **argv, t_data *data)
 			data->nb_must_be_eaten = ft_atoi(argv[5]);
 		else
 			data->nb_must_be_eaten = -1;
-		// if (data->nb_of_philos == 1)
-		// {
-		// 	if (handle_one_philo(data) == ERROR)
-		// 		return (ERROR);
-		// }
 		return (SUCCESS);
 	}
 	return (ERROR);

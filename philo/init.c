@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:25:31 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/03 11:52:06 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/04 10:24:19 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,15 @@ static int	mutex_data(t_data *data)
 
 	i = 0;
 	fill_mutex(data);
+	data->start_time = curr_time_millisec();
+	data->stop = 0;
+	data->nb_meals_stop_philo = 0;
 	while (i < data->nb_of_philos)
 	{
 		if (pthread_mutex_init(&data->forks[i], NULL) == ERROR)
 			return (MUTEX_INIT_ERROR);
 		++i;
 	}
-	// if (pthread_mutex_init(&data->print, NULL) == ERROR)
-	// 	return (MUTEX_INIT_ERROR);
 	if (pthread_mutex_init(&data->stop_mutex, NULL) == ERROR)
 		return (MUTEX_INIT_ERROR);
 	return (SUCCESS);
@@ -73,17 +74,11 @@ static int	mutex_data(t_data *data)
  */
 static int	philosophers_data(t_data *data)
 {
-	int	i;
+	int			i;
 	long long	t;
 
 	i = 0;
 	fill_philo(data);
-	data->start_time = curr_time_millisec();
-	// pthread_mutex_lock(data->philo->check_philo_died);
-	// pthread_mutex_lock(&data->stop_mutex);
-	data->stop = 0;
-	// pthread_mutex_unlock(&data->stop_mutex);
-	data->nb_meals_stop_philo = 0;
 	t = curr_time_millisec();
 	while (i < data->nb_of_philos)
 	{

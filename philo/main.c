@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 21:35:03 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/03 22:45:20 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/04 10:07:18 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,7 @@ int	main(int argc, char **argv)
 		return (ERROR);
 	if (create_thread(&data) == ERROR)
 		return (ERROR);
-	
 	if (join_and_destroy_thread(&data) == ERROR)
 		return (ERROR);
-	printf("in cycle\n");
 	return (SUCCESS);
 }
-
-
-// int	ft_error_arg(int argc)
-// {
-// 	if (argc > 6)
-// 		write(1, "Too many arguments\n", 19);
-// 	else if (argc < 5)
-// 		write(1, "Too few arguments\n", 18);
-// 	return (1);
-// }

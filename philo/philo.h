@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:15:01 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/03 23:04:05 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/04 09:53:36 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		digit_args(char **argv);
 int	elapsed_time(t_data *info);
 int	usleep_milliseconds(void);
 long long	curr_time_millisec(void);
-
+void my_sleep(int ms);
 
 // int print_to_terminal(t_data *info, t_philo *philo, int msg_code);
 void	print_message(t_data *data, int idx, char *msg);

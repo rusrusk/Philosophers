@@ -6,7 +6,7 @@
 /*   By: rkultaev <rkultaev@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:17:12 by rkultaev          #+#    #+#             */
-/*   Updated: 2022/08/03 09:25:46 by rkultaev         ###   ########.fr       */
+/*   Updated: 2022/08/04 10:13:07 by rkultaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ typedef enum s_error
 {
 	MALLOC_ERROR = -1,
 	MUTEX_INIT_ERROR = -1,
-	MUTEX_DESTROY_ERROR,
-	MUTEX_LOCK_ERROR,
-	MUTEX_UNLOCK_ERROR,
-	PTHREAD_CREATE_ERROR
+	MUTEX_DESTROY_ERROR = -1,
+	MUTEX_LOCK_ERROR = -1,
+	MUTEX_UNLOCK_ERROR = -1,
+	PTHREAD_CREATE_ERROR = -1
 }	t_error;
 
 /**
@@ -51,7 +51,6 @@ typedef struct s_data
 	int				time_to_think;
 	long long		start_time;
 	int				stop;
-	char			*message[5];
 	struct s_philo	*philo;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print;
@@ -74,7 +73,7 @@ typedef struct s_philo
 	pthread_mutex_t			*right_fork;
 	int						nb_of_eaten_meals;
 	int						time_without_eating;
-	long long				last_meal_time; //current time - start time
+	long long				last_meal_time;
 	t_data					*data;
 }	t_philo;
 
